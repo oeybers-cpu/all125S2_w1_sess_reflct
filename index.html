@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -446,35 +445,18 @@
                 </div>
             </div>
             
-            <h3><i class="fas fa-question-circle"></i> Reflective Questions</h3>
+            <h3><i class="fas fa-question-circle"></i> Reflective Question</h3>
             
             <div class="question-card">
-                <h3 class="question-title"><i class="fas fa-lightbulb"></i> Question 1: Purpose of Education</h3>
-                <p>How do these decolonial principles change or challenge your understanding of the purpose of higher education? What should universities aim to achieve according to a decolonial perspective?</p>
-                <textarea class="textarea" id="question1" placeholder="Write your reflection here..."></textarea>
-            </div>
-            
-            <div class="question-card">
-                <h3 class="question-title"><i class="fas fa-graduation-cap"></i> Question 2: Your Discipline</h3>
-                <p>How might these four principles (re-humanising, pluriversalising, deracialising, decolonising the mind) be applied specifically within your academic discipline? What would this look like in practice?</p>
-                <textarea class="textarea" id="question2" placeholder="Write your reflection here..."></textarea>
-            </div>
-            
-            <div class="question-card">
-                <h3 class="question-title"><i class="fas fa-users"></i> Question 3: Positionality</h3>
-                <p>Reflect on your own positionality - how do your background, experiences, and identity influence how you understand and engage with these decolonial principles? How might this awareness shape your approach to learning?</p>
-                <textarea class="textarea" id="question3" placeholder="Write your reflection here..."></textarea>
-            </div>
-            
-            <div class="question-card">
-                <h3 class="question-title"><i class="fas fa-hands-helping"></i> Question 4: Implementation</h3>
-                <p>What practical steps could educational institutions take to implement these decolonial principles? What challenges might they face, and how could these be addressed?</p>
-                <textarea class="textarea" id="question4" placeholder="Write your reflection here..."></textarea>
+                <h3 class="question-title"><i class="fas fa-lightbulb"></i> Synthesis Reflection</h3>
+                <p>Having considered the four decolonial principles (re-humanising, pluriversalising, deracialising, decolonising the mind) and reflected on the various questions about the purpose of education, your discipline, positionality, and implementation:</p>
+                <p>What is your key takeaway from this session? How has your understanding of decoloniality and its implications for education evolved, and how might this influence your approach to learning and knowledge in your academic journey?</p>
+                <textarea class="textarea" id="synthesis-question" placeholder="Write your synthesis reflection here..."></textarea>
             </div>
             
             <div class="action-buttons">
                 <button class="action-button download-button" onclick="downloadResponses()">
-                    <i class="fas fa-download"></i> Download Responses (.txt)
+                    <i class="fas fa-download"></i> Download Response (.txt)
                 </button>
                 <button class="action-button copy-button" onclick="copyResponses()">
                     <i class="fas fa-copy"></i> Copy to Clipboard
@@ -490,30 +472,15 @@
     </div>
     
     <script>
-        function collectResponses() {
-            const responses = {
-                question1: document.getElementById('question1').value || "(No response)",
-                question2: document.getElementById('question2').value || "(No response)",
-                question3: document.getElementById('question3').value || "(No response)",
-                question4: document.getElementById('question4').value || "(No response)"
-            };
-            return responses;
-        }
-        
         function formatTextContent() {
-            const responses = collectResponses();
+            const response = document.getElementById('synthesis-question').value || "(No response)";
             const date = new Date().toLocaleDateString();
             let content = "Session Reflection: Decoloniality in Contemporary Contexts\n";
             content += "===============================================\n\n";
             content += `Date: ${date}\n\n`;
-            content += "Question 1: How do these decolonial principles change or challenge your understanding of the purpose of higher education?\n";
-            content += `Response: ${responses.question1}\n\n`;
-            content += "Question 2: How might these four principles be applied specifically within your academic discipline?\n";
-            content += `Response: ${responses.question2}\n\n`;
-            content += "Question 3: Reflect on your own positionality - how do your background, experiences, and identity influence how you understand and engage with these decolonial principles?\n";
-            content += `Response: ${responses.question3}\n\n`;
-            content += "Question 4: What practical steps could educational institutions take to implement these decolonial principles?\n";
-            content += `Response: ${responses.question4}\n\n`;
+            content += "Synthesis Reflection Question:\n";
+            content += "What is your key takeaway from this session? How has your understanding of decoloniality and its implications for education evolved, and how might this influence your approach to learning and knowledge in your academic journey?\n\n";
+            content += `Response: ${response}\n\n`;
             content += "This document was generated from the Academic Literacy assignment tool.";
             return content;
         }
@@ -524,18 +491,18 @@
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             const dateStr = new Date().toISOString().slice(0, 10);
-            link.download = `session_reflection_decoloniality_${dateStr}.txt`;
+            link.download = `session_reflection_synthesis_${dateStr}.txt`;
             document.body.appendChild(link);
             link.click();
             URL.revokeObjectURL(link.href);
             document.body.removeChild(link);
-            alert(`Responses downloaded as session_reflection_decoloniality_${dateStr}.txt!\nCheck your Downloads folder.`);
+            alert(`Response downloaded as session_reflection_synthesis_${dateStr}.txt!\nCheck your Downloads folder.`);
         }
         
         function copyResponses() {
             const content = formatTextContent();
             navigator.clipboard.writeText(content).then(() => {
-                alert("Responses copied to clipboard!");
+                alert("Response copied to clipboard!");
             }).catch(err => {
                 console.error('Copy failed:', err);
                 alert("Copy failed. Please try again.");
@@ -544,4 +511,3 @@
     </script>
 </body>
 </html>
-```
